@@ -1,0 +1,28 @@
+void setup() {
+  Serial.begin(9600);
+  
+ 
+  pinMode(10, OUTPUT);
+  pinMode(9, INPUT_PULLUP);
+  
+ 
+  pinMode(6, OUTPUT);
+  pinMode(5, INPUT_PULLUP);
+}
+
+void loop() {
+
+  if(digitalRead(9) == LOW){
+    digitalWrite(10, HIGH);   
+    Serial.println("OPCAO_A"); 
+    digitalWrite(10, LOW);    
+  }
+
+
+  if(digitalRead(5) == LOW){
+    digitalWrite(6, HIGH);     
+    Serial.println("OPCAO_B"); 
+    delay(3000);               
+    digitalWrite(6, LOW);      
+  }
+}
