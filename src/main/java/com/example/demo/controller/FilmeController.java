@@ -8,12 +8,17 @@ import java.util.List;
 
 @RestController
 @RequestMapping("FilmesPortifolio")
+@CrossOrigin(origins = "*")
 public class FilmeController {
-    //injeção de dependecia
+
     private final FilmeService filmeService;
 
     public FilmeController(FilmeService filmeService) {
         this.filmeService = filmeService;
+    }
+    @GetMapping("/{id}")
+    public Filme getById(@PathVariable Long id) {
+        return filmeService.getById(id);
     }
 
     @GetMapping
@@ -24,9 +29,12 @@ public class FilmeController {
     public Filme create(@RequestBody Filme filme){
         return filmeService.save(filme);
     }
-    @DeleteMapping
-    public void delete(Long id){
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id){
         filmeService.delete(id);
     }
-
+    @PostMapping("/buscar")
+    public Filme buscarNovonoTMDB(@RequestParam String nome){
+        return filmeService.buscarESalvar(nome);
+    }
 }

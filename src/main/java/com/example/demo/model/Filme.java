@@ -12,23 +12,34 @@ public class Filme {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String genero;
-    protected Filme() {
+    @Column(length = 1000)
+    private String descricao;
+    private String url_imagem;
+
+    public String getUrl_imagem() {
+        return url_imagem;
     }
-    public Filme(String nome, int ano, long id, String genero) {
+
+    public void setUrl_imagem(String url_imagem) {
+        this.url_imagem = url_imagem;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public Filme() {
+    }
+    public Filme(String nome, int ano) {
         this.nome = nome;
         this.ano = ano;
-        this.id = id;
-        this.genero = genero;
+
     }
 
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
 
     public String getNome() {
         return nome;
