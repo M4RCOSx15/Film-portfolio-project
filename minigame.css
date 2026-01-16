@@ -1,0 +1,52 @@
+body {
+  background: #0b0b0e;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+  padding: 40px;
+}
+
+h1 {
+  color: #e50914;
+  margin-bottom: 30px;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.quiz-card {
+  background: #14141a;
+  border: 1px solid rgba(229,9,20,0.4);
+  border-radius: 16px;
+  padding: 30px;
+  max-width: 420px;
+  margin: auto;
+  box-shadow: 0 0 25px rgba(229,9,20,0.35);
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.opcoes {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.opcoes button {
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #e50914, #ff2a2a);
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.opcoes button:hover {
+  background: linear-gradient(135deg, #ff2a2a, #e50914);
+  transform: scale(1.05);
+}

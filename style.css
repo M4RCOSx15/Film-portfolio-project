@@ -1,0 +1,155 @@
+:root {
+  --bg: #0b0b0e;
+  --bg-card: #14141a;
+  --red: #e50914;
+  --red-dark: #9b0d12;
+  --text: #f5f5f7;
+  --muted: #b3b3b3;
+  --border: rgba(229,9,20,0.25);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: radial-gradient(circle at top, #111118, var(--bg));
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+}
+
+header {
+  padding: 3rem 2rem;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+
+header h1 {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--red);
+  letter-spacing: 2px;
+}
+
+.search-container {
+  margin-bottom: 3rem;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+
+input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #1a1a24;
+  color: white;
+  width: 300px;
+}
+
+button {
+  background: var(--red);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  cursor: pointer;
+}
+
+button:hover { background: var(--red-dark); }
+
+.section-title {
+  font-family: 'Orbitron';
+  margin: 20px;
+  border-left: 4px solid var(--red);
+  padding-left: 10px;
+}
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 2rem;
+  padding: 20px;
+}
+
+.movie-card {
+  background: linear-gradient(180deg, var(--bg-card), #0e0e13);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.movie-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px rgba(229,9,20,0.4);
+}
+
+.movie-poster-img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+.movie-info { padding: 10px; }
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #0f0f15;
+  border: 1px solid var(--red);
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 450px; /* Largura máxima controlada */
+  max-height: 90vh; /* Não deixa o card ser maior que a altura da tela */
+  overflow-y: auto; /* Se o texto for grande, cria uma barra de rolagem interna */
+  width: 90%;
+  color: white;
+  position: relative; /* Importante para o posicionamento do X */
+  animation: fadeIn 0.3s ease;
+}
+
+/* Ajuste da Imagem dentro do Modal */
+.modal-content img {
+  width: 100%;
+  height: 350px; /* Altura fixa para não empurrar tudo */
+  object-fit: cover; /* Corta a imagem sem distorcer */
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Ajuste do botão Fechar (X) */
+.close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  color: var(--red);
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10; /* Garante que o X fique em cima de tudo */
+}
+.mini-game-btn {
+  background: linear-gradient(135deg, #e50914, #ff2a2a);
+  box-shadow: 0 0 10px rgba(229,9,20,0.6);
+}
+
+.mini-game-btn:hover {
+  background: linear-gradient(135deg, #ff2a2a, #e50914);
+  transform: scale(1.05);
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
