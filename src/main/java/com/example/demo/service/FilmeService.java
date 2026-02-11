@@ -23,10 +23,9 @@ public class FilmeService {
     }
 
     public Filme buscarESalvar(String nomeFilme) {
-        // 1. Monta a URL
+        
         String url = "https://api.themoviedb.org/3/search/movie?api_key=" + API_KEY + "&query=" + nomeFilme + "&language=pt-BR";
 
-        // 2. Recebe a resposta bruta como um Map
         Map<String, Object> resposta = restTemplate.getForObject(url, Map.class);
 
         try {
