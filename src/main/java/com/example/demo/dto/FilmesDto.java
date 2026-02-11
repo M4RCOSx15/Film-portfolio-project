@@ -4,23 +4,23 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.web.client.RestTemplate;
 
-//Classe JSON
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FilmesDto {
     @JsonProperty("id")
     private long id;
 
-    @JsonProperty("title") // O TMDB manda "title"
+    @JsonProperty("title") 
     private String titulo;
 
-    @JsonProperty("overview") // O TMDB manda "overview" (sinopse)
+    @JsonProperty("overview") 
     private String revisao;
     @JsonProperty("gender")
     private String genero;
-    @JsonProperty("release_date") // O TMDB manda "2014-11-05"
+    @JsonProperty("release_date")
     private String dataLancamento;
 
-    @JsonProperty("poster_path") // Caminho da imagem: "/xJHokMv...jpg"
+    @JsonProperty("poster_path") 
     private String posterPath;
 
     public String getGenero() {
@@ -32,8 +32,8 @@ public class FilmesDto {
     }
 
     public int getAno(){
-        if(dataLancamento != null && dataLancamento.length()>=4){ //VERIFICA SE RETORNOU UMA DATA
-            return Integer.parseInt(dataLancamento.substring(0,4)); //"TESOURA" PARA CORTAR E DEIXAR O ANO
+        if(dataLancamento != null && dataLancamento.length()>=4){ 
+            return Integer.parseInt(dataLancamento.substring(0,4)); 
         }
         return 0;
     }
